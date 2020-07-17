@@ -1,0 +1,225 @@
+html body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #000;
+  background: url("../images/coplandbg.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: "Courier New", Courier, monospace;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+a {
+  text-decoration: none;
+  color:white;
+}
+
+body::before {
+  /* :  ^   ) */
+  content: "";
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: calc(100% + 32px);
+  height: calc(100% + 32px);
+  background-image: url("../images/naviscan.png");
+  background-position: 0 0;
+  background-repeat: repeat;
+  z-index: 10000000;
+  animation: ScanlineAnimationLeft 2s linear infinite;
+  pointer-events: none;
+  opacity: 0.15;
+}
+
+body::after {
+  /* :  ^   ) */
+  content: "";
+  display: block;
+  position: fixed;
+  left: -32px;
+  top: 0;
+  width: calc(100% + 32px);
+  height: calc(100% + 32px);
+  background-image: url("../images/naviscan.png");
+  background-position: 0 0;
+  background-repeat: repeat;
+  z-index: 10000000;
+  animation: ScanlineAnimationRight 0.4s linear infinite;
+  pointer-events: none;
+  opacity: 0.15;
+}
+
+.white {
+  color:white;
+}
+
+@keyframes ScanlineAnimationLeft {
+  /* :  ^   ) */
+  0% {
+    transform: translateX(0px) translateY(0px);
+  }
+  100% {
+    transform: translateX(-32px) translateY(-16px);
+  }
+}
+
+@keyframes ScanlineAnimationRight {
+  /* :  ^   ) */
+  0% {
+    transform: translateX(0px) translateY(0px);
+  }
+  100% {
+    transform: translateX(32px) translateY(-16px);
+  }
+}
+
+.topnav {
+  background-color: #1f4d99;
+  overflow: hidden;
+
+  &--active {
+    background-color: #458fff;
+    color: white;
+    font-size: 2rem;
+    padding-left: 0.5rem;
+  }
+
+  a {
+    float: left;
+    color: #f2f2f2;
+    text-decoration: none;
+    font-size: 2rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    text-shadow: 2px 2px black;
+
+    img {
+      height: 5rem;
+      vertical-align: middle;
+    }
+  }
+  a:hover {
+    background-color: #ddd;
+    color: black;
+    text-shadow: none;
+  }
+}
+
+.window {
+  opacity: 0.7;
+  position: absolute;
+  min-width: 500px;
+  min-height: 200px;
+  padding: 0px;
+  z-index: 1000;
+  left: 40vw;
+  width: 52.5vw;
+
+  a {
+    text-decoration: none;
+  }
+
+  h2 {
+    color: #a0a0ff;
+    text-align: center;
+    font-size: 5rem;
+    letter-spacing: 3px;
+  }
+  h3 {
+    color: white;
+    text-align: center;
+    font-size: 4.5rem;
+  }
+
+  &__navi {
+    position: relative;
+    border-style: solid;
+    border-width: 10px;
+    border-top-width: 10px;
+    border-color: white;
+    border-top-width: 2px;
+    background: #121212;
+    overflow-y: scroll;
+    height: 70vh;
+    width: 51vw;
+
+    &--notice {
+      color:yellow !important;
+    }
+
+    &--mainlain {
+      border: none !important;
+    }
+
+    p {
+      color: white;
+      text-align: center;
+      font-size: 2rem;
+    }
+
+    img {
+      border: 2px solid white;
+      margin: 0 auto;
+      display: block;
+      width: 50rem;
+    }
+  }
+
+  &__topbar {
+    color: white;
+    position: relative;
+    display: flex;
+    height: 30px;
+    font-size: 20px;
+    margin-bottom: 2px;
+    box-shadow: 0px 1px 10px black;
+    background-color: white;
+    width: 100%;
+
+    img {
+      height: 32px;
+      width: 29px;
+    }
+
+    h2 {
+      color: black;
+      margin: 0;
+      font-size: 2rem;
+      margin-top: 0.5rem;
+    }
+  }
+  .section {
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    padding-bottom: 5rem;
+  }
+  .section:hover {
+    background-color: rgba(1, 73, 139, 0.644);
+  }
+
+  .textonly {
+    padding: 0;
+  }
+}
+
+.window:hover {
+  opacity: 1;
+}
+
+#communities,
+#boards,
+#subreddits,
+#personal,
+#discord,
+#ircs,
+#telegram,
+#pleroma,
+#misc {
+  display: none;
+}
